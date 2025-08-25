@@ -1,0 +1,48 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtHeader"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Result picker -->
+        <TextView android:text="Result" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:text="White Win (1–0)" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <RadioButton android:text="Black Win (0–1)" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <RadioButton android:text="Draw (½–½)" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+        <!-- Photo placeholder -->
+        <TextView android:text="Final Position Photo" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <ImageView
+            android:contentDescription="Board photo placeholder"
+            android:src="@android:drawable/ic_menu_camera"
+            android:adjustViewBounds="true"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
+
+        <!-- Notes -->
+        <TextView android:text="Notes" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="e.g., Black checkmated on move 31"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="top"
+            android:background="@android:drawable/edit_text"/>
+
+    </LinearLayout>
+</ScrollView>
