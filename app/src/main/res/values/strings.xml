@@ -1,3 +1,52 @@
 <resources>
+    <!-- App -->
     <string name="app_name">Chess Competition Manager</string>
+
+    <!-- Common labels/buttons -->
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_open_play_list">Open Play List</string>
+    <string name="btn_add_week">+ New Week</string>
+    <string name="btn_add_player">Person+ New Player</string>
+    <string name="btn_open_game_details">Open Game Details</string>
+    <string name="btn_add_game">+ Add Game</string>
+
+    <!-- Add Game -->
+    <string name="title_add_game">Add Game</string>
+    <string name="label_white_player">White Player</string>
+    <string name="label_black_player">Black Player</string>
+
+    <!-- Add Player -->
+    <string name="title_add_player">Add Player</string>
+    <string name="label_full_name">Full Name</string>
+    <string name="hint_full_name">e.g., Thabo M</string>
+    <string name="label_handle">Player Handle</string>
+    <string name="hint_handle">e.g., KnightRider</string>
+    <string name="label_grade">Grade</string>
+    <string name="label_avatar">Avatar</string>
+    <string name="cd_avatar_placeholder">Avatar placeholder</string>
+
+    <!-- Game Details -->
+    <string name="label_result">Result</string>
+    <string name="result_white_win">White Win (1–0)</string>
+    <string name="result_black_win">Black Win (0–1)</string>
+    <string name="result_draw">Draw (½–½)</string>
+    <string name="label_final_photo">Final Position Photo</string>
+    <string name="cd_board_photo_placeholder">Board photo placeholder</string>
+    <string name="label_notes">Notes</string>
+    <string name="hint_notes">e.g., Black checkmated on move 31</string>
+
+    <!-- Play List -->
+    <string name="week_unknown">Week ?</string>
+    <string name="matchup_example">Alice (White) vs Bob (Black)</string>
+    <string name="result_pending">Result: Pending</string>
+
+    <!-- Season List -->
+    <string name="title_season">Season (10 weeks)</string>
+    <string name="week1_label">Week 1 • Ends: 2025-09-05 • Status: Open</string>
+    <string name="week2_label">Week 2 • Ends: 2025-09-12 • Status: Closed</string>
+
+    <!-- Optional formatted strings for later (if you want dynamic text) -->
+    <string name="matchup_format">%1$s (White) vs %2$s (Black)</string>
+    <string name="week_status_format">Week %1$d • Ends: %2$s • Status: %3$s</string>
 </resources>
