@@ -1,77 +1,88 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fillViewport="true"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Content -->
     <LinearLayout
-        android:padding="16dp"
         android:orientation="vertical"
+        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
-            android:text="Season (10 weeks)"
+            android:id="@+id/txtTitle"
+            android:text="@string/title_season_list"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!-- Week item mock -->
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWeeks"
             android:layout_marginTop="12dp"
-            android:padding="12dp"
-            android:background="#EEEEEE"
-            android:orientation="vertical"
+            android:clipToPadding="false"
+            android:paddingBottom="96dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView android:text="Week 1 • Ends: 2025-09-05 • Status: Open"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/btnWeek1"
-                android:text="Open Play List"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="8dp"
-            android:padding="12dp"
-            android:background="#EEEEEE"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView android:text="Week 2 • Ends: 2025-09-12 • Status: Closed"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/btnWeek2"
-                android:text="Open Play List"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <!-- Floating actions (mocked as buttons) -->
-        <LinearLayout
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/fabAddWeek"
-                android:text="+ New Week"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"/>
-
-            <Button
-                android:id="@+id/fabAddPlayer"
-                android:text="Person+ New Player"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
     </LinearLayout>
-</ScrollView>
+
+    <!-- FABs stacked bottom-right -->
+    <LinearLayout
+        android:layout_gravity="end|bottom"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabAddWeek"
+                android:contentDescription="@string/add_week"
+                android:src="@android:drawable/ic_input_add"
+                app:useCompatPadding="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@string/add_week"
+                android:textSize="12sp"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <Space android:layout_width="0dp" android:layout_height="18dp"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabAddPlayer"
+                android:contentDescription="@string/add_player"
+                android:src="@android:drawable/ic_input_add"
+                app:useCompatPadding="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@string/add_player"
+                android:textSize="12sp"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

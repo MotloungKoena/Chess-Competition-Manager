@@ -1,0 +1,26 @@
+<resources>
+    <!-- Spinner for grades -->
+    <string-array name="grades">
+        <item>Grade 8</item>
+        <item>Grade 9</item>
+        <item>Grade 10</item>
+        <item>Grade 11</item>
+        <item>Grade 12</item>
+    </string-array>
+
+    <!-- Temporary player lists for Add Game (static for now) -->
+    <string-array name="player_names">
+        <item>Alice</item>
+        <item>Bob</item>
+        <item>Chinedu</item>
+        <item>Thabo</item>
+        <item>Leila</item>
+    </string-array>
+
+    <!-- If you ever want to build the result picker programmatically -->
+    <string-array name="results">
+        <item>@string/result_white_win</item>
+        <item>@string/result_black_win</item>
+        <item>@string/result_draw</item>
+    </string-array>
+</resources>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:fillViewport="true"
     android:layout_width="match_parent"
@@ -9,25 +10,52 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView android:text="Add Player"
-            android:textStyle="bold" android:textSize="18sp"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView
+            android:text="@string/title_add_player"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <TextView android:text="Full Name" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-        <EditText android:hint="e.g., Thabo M"
-            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <TextView
+            android:text="@string/label_full_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <TextView android:text="Player Handle" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-        <EditText android:hint="e.g., KnightRider"
-            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="@string/hint_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-        <TextView android:text="Grade" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-        <Spinner android:id="@+id/spinGrade" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <TextView
+            android:text="@string/label_handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <TextView android:text="Avatar" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="@string/hint_handle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@string/label_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:id="@+id/spinGrade"
+            android:entries="@array/grades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@string/label_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
-            android:contentDescription="Avatar placeholder"
+            android:contentDescription="@string/cd_avatar_placeholder"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:adjustViewBounds="true"/>
@@ -38,9 +66,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button android:text="Cancel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
-            <Button android:text="Save" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
-        </LinearLayout>
+            <Button
+                android:text="@string/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
 
+            <Button
+                android:text="@string/btn_save"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

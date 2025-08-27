@@ -6,10 +6,10 @@
     <string name="btn_cancel">Cancel</string>
     <string name="btn_save">Save</string>
     <string name="btn_open_play_list">Open Play List</string>
-    <string name="btn_add_week">+ New Week</string>
-    <string name="btn_add_player">Person+ New Player</string>
+    <string name="btn_add_week">Add Week</string>
+    <string name="btn_add_player">Add Player</string>
     <string name="btn_open_game_details">Open Game Details</string>
-    <string name="btn_add_game">+ Add Game</string>
+    <string name="btn_add_game">Add Game</string>
 
     <!-- Add Game -->
     <string name="title_add_game">Add Game</string>
@@ -35,6 +35,29 @@
     <string name="cd_board_photo_placeholder">Board photo placeholder</string>
     <string name="label_notes">Notes</string>
     <string name="hint_notes">e.g., Black checkmated on move 31</string>
+
+    <string name="title_game_details">Game Details</string>
+    <string name="role_white">(White)</string>
+    <string name="role_black">(Black)</string>
+    <string name="tap_to_capture">Tap to capture</string>
+    <string name="cd_avatar_white">White player avatar</string>
+    <string name="cd_avatar_black">Black player avatar</string>
+    <string name="sample_white_name">Alice</string>
+    <string name="sample_black_name">David</string>
+    <!-- res/values/strings.xml -->
+    <string name="role_white_paren">(White)</string>
+    <string name="role_black_paren">(Black)</string>
+    <string name="title_season_list">Season List</string>
+    <string name="status_open">Open</string>
+    <string name="status_closed">Closed</string>
+    <string name="add_week">Add Week</string>
+    <string name="add_player">Add Player</string>
+    <string name="new_week">New Week</string>
+
+    <string name="app_title_chess_manager">Chess Manager</string>
+
+
+
 
     <!-- Play List -->
     <string name="week_unknown">Week ?</string>
