@@ -56,6 +56,12 @@
 
     <string name="app_title_chess_manager">Chess Manager</string>
 
+        <string name="status_pending">Pending</string>
+        <string name="status_white_win">1–0</string>
+        <string name="status_black_win">0–1</string>
+        <string name="status_draw">½–½</string>
+
+
 
 
 
@@ -72,4 +78,9 @@
     <!-- Optional formatted strings for later (if you want dynamic text) -->
     <string name="matchup_format">%1$s (White) vs %2$s (Black)</string>
     <string name="week_status_format">Week %1$d • Ends: %2$s • Status: %3$s</string>
+
+
+
+    <string name="white_player">White Player</string>
+    <string name="black_player">Black Player</string>
 </resources>

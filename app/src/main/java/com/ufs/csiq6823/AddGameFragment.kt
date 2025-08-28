@@ -1,30 +1,43 @@
 package com.ufs.csiq6823
 
 import android.os.Bundle
-import android.view.*
+import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.AutoCompleteTextView
+import android.widget.Button
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 
-class AddGameFragment : Fragment() {
+class AddGameFragment : Fragment(R.layout.fragment_add_game) {
 
     companion object {
-        private const val ARG_WEEK = "ARG_WEEK"
-        fun newInstance(weekTitle: String) = AddGameFragment().apply {
-            arguments = Bundle().apply { putString(ARG_WEEK, weekTitle) }
-        }
-    }
+        private const val ARG_WEEK = "arg_week"
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_add_game, container, false)
+        fun newInstance(weekTitle: String): AddGameFragment =
+            AddGameFragment().apply {
+                arguments = bundleOf(ARG_WEEK to weekTitle)
+            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val white = view.findViewById<Spinner>(R.id.spinWhite)
-        val black = view.findViewById<Spinner>(R.id.spinBlack)
-        val players = listOf("Alice", "Bob", "Carol", "Dave")
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, players)
-        white.adapter = adapter
-        black.adapter = adapter
+        super.onViewCreated(view, savedInstanceState)
+
+        // Dropdowns
+        val actvWhite = view.findViewById<AutoCompleteTextView>(R.id.actvWhite)
+        val actvBlack = view.findViewById<AutoCompleteTextView>(R.id.actvBlack)
+
+        val players = resources.getStringArray(R.array.player_names)
+        val adapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, players)
+        actvWhite.setAdapter(adapter)
+        actvBlack.setAdapter(adapter)
+
+        // Buttons
+        view.findViewById<Button>(R.id.btnCancel).setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+        view.findViewById<Button>(R.id.btnSave).setOnClickListener {
+            // no-op for now; just go back
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 }

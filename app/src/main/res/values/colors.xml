@@ -10,4 +10,24 @@
     <color name="status_open_bg">#E3F2FD</color>   <!-- light blue -->
     <color name="status_closed_bg">#EEEEEE</color> <!-- light gray -->
 
+
+
+        <!-- Chip base -->
+        <color name="chip_stroke">#C9CFD6</color>
+        <color name="chip_bg_default">#EDEFF3</color>
+        <color name="chip_fg">#1E293B</color>
+
+        <!-- Specific states (backgrounds) -->
+        <color name="chip_bg_pending">#E7F0FF</color>
+        <color name="chip_bg_win">#E6F8EC</color>
+        <color name="chip_bg_loss">#FFEAEA</color>
+        <color name="chip_bg_draw">#F1F0FF</color>
+
+        <!-- Specific states (foregrounds) -->
+        <color name="chip_fg_pending">#0B57D0</color>
+        <color name="chip_fg_win">#147A2E</color>
+        <color name="chip_fg_loss">#B3261E</color>
+        <color name="chip_fg_draw">#4F378B</color>
+
+
 </resources>

@@ -1,55 +1,47 @@
 package com.ufs.csiq6823
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_ChessCompetitionManager) // ensures AppCompat theme
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar?.title = getString(R.string.app_title_chess_manager)
-
         if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragment_container, SeasonListFragment())
-                .commit()
+            supportFragmentManager.commit {
+                replace(R.id.fragment_container, SeasonListFragment())
+            }
         }
     }
 
-    fun openPlayList(weekTitle: String) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container, PlayListFragment.newInstance(weekTitle))
-            .addToBackStack(null)
-            .commit()
+    fun openPlayList(weekTitle: String, dateLabel: String) {
+        supportFragmentManager.commit {
+            replace(R.id.fragment_container, PlayListFragment.newInstance(weekTitle, dateLabel))
+            addToBackStack(null)
+        }
     }
 
     fun openAddPlayer() {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container, AddPlayerFragment())
-            .addToBackStack(null)
-            .commit()
+        supportFragmentManager.commit {
+            replace(R.id.fragment_container, AddPlayerFragment())
+            addToBackStack(null)
+        }
     }
 
     fun openAddGame(weekTitle: String) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container, AddGameFragment.newInstance(weekTitle))
-            .addToBackStack(null)
-            .commit()
+        supportFragmentManager.commit {
+            replace(R.id.fragment_container, AddGameFragment.newInstance(weekTitle))
+            addToBackStack(null)
+        }
     }
 
     fun openGameDetails(white: String, black: String) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container, GameDetailsFragment.newInstance(white, black))
-            .addToBackStack(null)
-            .commit()
+        supportFragmentManager.commit {
+            replace(R.id.fragment_container, GameDetailsFragment.newInstance(white, black))
+            addToBackStack(null)
+        }
     }
 }
