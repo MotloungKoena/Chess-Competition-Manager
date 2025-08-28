@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Avatar circle -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="180dp">
@@ -28,7 +27,6 @@
                 android:src="@android:drawable/ic_menu_camera" />
         </FrameLayout>
 
-        <!-- Full name -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,7 +43,6 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Grade (exposed dropdown) -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="12dp"
             android:layout_width="match_parent"
@@ -65,7 +62,6 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Nickname -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="12dp"
             android:layout_width="match_parent"
@@ -84,7 +80,6 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Buttons -->
         <LinearLayout
             android:layout_marginTop="20dp"
             android:gravity="end"

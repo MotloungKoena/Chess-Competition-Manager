@@ -15,21 +15,16 @@ class AddPlayerFragment : Fragment(R.layout.fragment_add_player) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Toolbar title + back arrow (matches wire)
         (activity as? AppCompatActivity)?.supportActionBar?.apply {
             title = getString(R.string.title_add_player)
             setDisplayHomeAsUpEnabled(true)
         }
 
-        // Grade dropdown
         val grades = resources.getStringArray(R.array.grades)
         val adapter = ArrayAdapter(requireContext(),
             android.R.layout.simple_list_item_1, grades)
         view.findViewById<AutoCompleteTextView>(R.id.actvGrade).setAdapter(adapter)
-        // Optional preselect:
-        // view.findViewById<AutoCompleteTextView>(R.id.actvGrade).setText(grades[0], false)
 
-        // Buttons
         view.findViewById<MaterialButton>(R.id.btnCancel).setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
@@ -44,7 +39,6 @@ class AddPlayerFragment : Fragment(R.layout.fragment_add_player) {
     }
 
     override fun onDestroyView() {
-        // remove the back arrow when leaving this screen
         (activity as? AppCompatActivity)?.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         super.onDestroyView()
     }
@@ -52,6 +46,6 @@ class AddPlayerFragment : Fragment(R.layout.fragment_add_player) {
     override fun onResume() {
         super.onResume()
         (activity as? AppCompatActivity)?.supportActionBar?.title =
-            getString(R.string.title_add_player)   // or title_game_details / app_name etc.
+            getString(R.string.title_add_player)
     }
 }

@@ -15,7 +15,6 @@ class SeasonListFragment : Fragment(R.layout.fragment_season_list) {
         val rv = view.findViewById<RecyclerView>(R.id.rvWeeks)
         rv.layoutManager = LinearLayoutManager(requireContext())
 
-        // Sample data matching the mock
         val weeks = listOf(
             WeekUI("Week 6", "Sep 10, 2025, 5:00 PM", true),
             WeekUI("Week 5", "Sep 3, 2025, 5:00 PM", false),
@@ -26,12 +25,8 @@ class SeasonListFragment : Fragment(R.layout.fragment_season_list) {
             (activity as? MainActivity)?.openPlayList(title, dateLabel)
         }
 
-        // NEW WEEK: pass null for the date label (or rely on MainActivity overload)
         view.findViewById<View>(R.id.fabAddWeek).setOnClickListener {
             (activity as? MainActivity)?.openNewWeek()
-            //(activity as? MainActivity)?.openPlayList(getString(R.string.new_week), null)
-            // if you added the overload, you can instead call:
-            // (activity as? MainActivity)?.openPlayList(getString(R.string.new_week))
         }
 
         view.findViewById<View>(R.id.fabAddPlayer).setOnClickListener {
@@ -42,6 +37,6 @@ class SeasonListFragment : Fragment(R.layout.fragment_season_list) {
     override fun onResume() {
         super.onResume()
         (activity as? AppCompatActivity)?.supportActionBar?.title =
-            getString(R.string.app_name)     // "Chess Manager"
+            getString(R.string.app_name)
     }
 }

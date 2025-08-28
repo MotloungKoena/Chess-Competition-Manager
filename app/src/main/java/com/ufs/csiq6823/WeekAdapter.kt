@@ -8,14 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 
 data class WeekUI(
-    val title: String,     // e.g., "Week 6"
-    val subtitle: String,  // e.g., "Sep 10, 2025, 5:00 PM"
+    val title: String,
+    val subtitle: String,
     val isOpen: Boolean
 )
 
 class WeekAdapter(
     private val weeks: List<WeekUI>,
-    // onClick now gives you (weekTitle, dateLabel)
     private val onClick: (String, String?) -> Unit
 ) : RecyclerView.Adapter<WeekAdapter.VH>() {
 
@@ -29,7 +28,6 @@ class WeekAdapter(
                 val pos = bindingAdapterPosition
                 if (pos != RecyclerView.NO_POSITION) {
                     val w = weeks[pos]
-                    // Take only the date part before the first comma (if any)
                     val dateLabel = w.subtitle.substringBefore(",", w.subtitle).trim()
                     onClick(w.title, dateLabel)
                 }

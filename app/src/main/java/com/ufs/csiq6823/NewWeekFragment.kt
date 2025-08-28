@@ -20,7 +20,6 @@ class NewWeekFragment : Fragment(R.layout.fragment_add_week) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // ----- Status dropdown -----
         val actv = view.findViewById<AutoCompleteTextView>(R.id.actvStatus)
         val statusAdapter = ArrayAdapter.createFromResource(
             requireContext(),
@@ -28,10 +27,9 @@ class NewWeekFragment : Fragment(R.layout.fragment_add_week) {
             android.R.layout.simple_list_item_1
         )
         actv.setAdapter(statusAdapter)
-        // Optional default
+
         actv.setText(getString(R.string.status_open), /* filter= */ false)
 
-        // ----- Date picker (simple) -----
         val tilDate = view.findViewById<TextInputLayout>(R.id.tilDate)
         val edtDate = view.findViewById<TextInputEditText>(R.id.edtWeekDate)
 
@@ -51,7 +49,6 @@ class NewWeekFragment : Fragment(R.layout.fragment_add_week) {
         edtDate.setOnClickListener(openDatePicker)
         tilDate.setEndIconOnClickListener(openDatePicker)
 
-        // ----- Buttons -----
         view.findViewById<Button>(R.id.btnCancel).setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }

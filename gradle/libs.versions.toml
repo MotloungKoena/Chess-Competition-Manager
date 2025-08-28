@@ -3,11 +3,11 @@ agp = "8.8.0"
 kotlin = "1.9.24"
 androidx-core = "1.13.1"
 fragmentKtx = "1.8.2"
-lifecycle = "2.7.0"      # safe with AGP 8.8.0
-activity = "1.8.2"       # non-Compose activity-ktx
+lifecycle = "2.7.0"
+activity = "1.8.2"
 appcompat = "1.7.1"
 junit = "4.13.2"
-junitVersion = "1.3.0"   # keep your test versions
+junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 material3Android = "1.3.2"
 material3Jvmstubs = "1.5.0-alpha02"
@@ -27,4 +27,4 @@ androidx-material3-jvmstubs = { group = "androidx.compose.material3", name = "ma
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-# ❌ removed: kotlin-compose
+

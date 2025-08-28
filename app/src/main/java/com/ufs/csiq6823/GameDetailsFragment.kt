@@ -29,18 +29,15 @@ class GameDetailsFragment : Fragment(R.layout.fragment_game_details) {
         val white = arguments?.getString(ARG_WHITE) ?: getString(R.string.sample_white_name)
         val black = arguments?.getString(ARG_BLACK) ?: getString(R.string.sample_black_name)
 
-        // Names + avatars
         view.findViewById<TextView>(R.id.txtWhiteName).text = white
         view.findViewById<TextView>(R.id.txtBlackName).text = black
-        view.findViewById<ImageView>(R.id.imgWhite)   // placeholder
-        view.findViewById<ImageView>(R.id.imgBlack)   // placeholder
-
+        view.findViewById<ImageView>(R.id.imgWhite)
+        view.findViewById<ImageView>(R.id.imgBlack)
 
         val results = resources.getStringArray(R.array.results)
         val adapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, results)
         view.findViewById<AutoCompleteTextView>(R.id.actvWhiteResult).setAdapter(adapter)
         view.findViewById<AutoCompleteTextView>(R.id.actvBlackResult).setAdapter(adapter)
-
 
         view.findViewById<Button>(R.id.btnSave).setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
@@ -50,6 +47,6 @@ class GameDetailsFragment : Fragment(R.layout.fragment_game_details) {
     override fun onResume() {
         super.onResume()
         (activity as? AppCompatActivity)?.supportActionBar?.title =
-            getString(R.string.title_game_details)   // or title_game_details / app_name etc.
+            getString(R.string.title_game_details)
     }
 }

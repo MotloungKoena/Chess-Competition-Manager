@@ -10,11 +10,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Hook toolbar if present
         findViewById<MaterialToolbar?>(R.id.toolbar)?.let { setSupportActionBar(it) }
         supportActionBar?.title = getString(R.string.app_name)
 
-        // Keep Up arrow state in sync with back stack
         supportFragmentManager.addOnBackStackChangedListener { syncUpButton() }
         syncUpButton()
 
@@ -91,7 +89,6 @@ class MainActivity : AppCompatActivity() {
         val hasBack = supportFragmentManager.backStackEntryCount > 0
         supportActionBar?.setDisplayHomeAsUpEnabled(hasBack)
 
-        // If using a MaterialToolbar, make its nav click go back
         findViewById<MaterialToolbar?>(R.id.toolbar)?.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }

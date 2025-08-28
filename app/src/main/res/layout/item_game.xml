@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Two-line title: "Alice vs David" -->
         <TextView
             android:id="@+id/txtTitle"
             android:text="Alice vs David"
@@ -28,7 +27,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <!-- A simple chip-looking label on the right -->
         <TextView
             android:id="@+id/chipStatus"
             android:text="@string/status_pending"

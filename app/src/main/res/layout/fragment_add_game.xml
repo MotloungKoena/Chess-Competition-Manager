@@ -12,9 +12,6 @@
         android:layout_marginTop="90dp"
         android:padding="16dp">
 
-
-
-        <!-- White player label -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +19,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp" />
 
-        <!-- White player dropdown (big rounded filled box) -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilWhite"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
@@ -43,7 +39,6 @@
                 android:paddingVertical="14dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Black player label -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,7 +46,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="4dp" />
 
-        <!-- Black player dropdown (big rounded filled box) -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilBlack"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
@@ -72,7 +66,6 @@
                 android:paddingVertical="14dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Bottom actions -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

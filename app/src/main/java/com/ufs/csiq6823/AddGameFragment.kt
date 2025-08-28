@@ -24,7 +24,6 @@ class AddGameFragment : Fragment(R.layout.fragment_add_game) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Dropdowns
         val actvWhite = view.findViewById<AutoCompleteTextView>(R.id.actvWhite)
         val actvBlack = view.findViewById<AutoCompleteTextView>(R.id.actvBlack)
 
@@ -33,12 +32,10 @@ class AddGameFragment : Fragment(R.layout.fragment_add_game) {
         actvWhite.setAdapter(adapter)
         actvBlack.setAdapter(adapter)
 
-        // Buttons
         view.findViewById<Button>(R.id.btnCancel).setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
         view.findViewById<Button>(R.id.btnSave).setOnClickListener {
-            // no-op for now; just go back
             Toast.makeText(requireContext(), "Game saved", Toast.LENGTH_SHORT).show()
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
@@ -47,6 +44,6 @@ class AddGameFragment : Fragment(R.layout.fragment_add_game) {
     override fun onResume() {
         super.onResume()
         (activity as? AppCompatActivity)?.supportActionBar?.title =
-            getString(R.string.title_add_game)   // or title_game_details / app_name etc.
+            getString(R.string.title_add_game)
     }
 }

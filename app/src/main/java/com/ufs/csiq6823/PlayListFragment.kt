@@ -26,11 +26,9 @@ class PlayListFragment : Fragment(R.layout.fragment_play_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // RecyclerView
         val rv = view.findViewById<RecyclerView>(R.id.rvGames)
         rv.layoutManager = LinearLayoutManager(requireContext())
 
-        // Sample data to match the mock
         val games = listOf(
             GameUI("Alice", "David", GameStatus.Pending),
             GameUI("Charlie", "Bob", GameStatus.WhiteWin),
@@ -39,24 +37,16 @@ class PlayListFragment : Fragment(R.layout.fragment_play_list) {
         )
 
         rv.adapter = GameAdapter(games) {
-            // Open details for the first item just as a demo
             (activity as? MainActivity)?.openGameDetails("Alice", "David")
         }
         view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fabAddGame)
             .setOnClickListener {
                 (activity as? MainActivity)?.openAddGame(weekTitle ?: getString(R.string.new_week))
             }
-
-        // Add Game button (Extended FAB)
-        /**view.findViewById<View>(R.id.fabAddGame)?.setOnClickListener {
-            (activity as? MainActivity)?.openAddGame(weekTitle ?: getString(R.string.new_week))
-        }*/
     }
 
     override fun onResume() {
         super.onResume()
-
-        // Keep the year, drop only the time. Example input: "Sep 10, 2025, 5:00 PM"
         val dateShort = dateLabel?.substringBeforeLast(",")?.trim()
 
         (activity as? AppCompatActivity)?.supportActionBar?.apply {
