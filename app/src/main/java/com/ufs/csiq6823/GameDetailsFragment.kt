@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 
 class GameDetailsFragment : Fragment(R.layout.fragment_game_details) {
 
@@ -34,15 +35,21 @@ class GameDetailsFragment : Fragment(R.layout.fragment_game_details) {
         view.findViewById<ImageView>(R.id.imgWhite)   // placeholder
         view.findViewById<ImageView>(R.id.imgBlack)   // placeholder
 
-        // Result dropdowns
-        val results = resources.getStringArray(R.array.results_labels)
+
+        val results = resources.getStringArray(R.array.results)
         val adapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, results)
         view.findViewById<AutoCompleteTextView>(R.id.actvWhiteResult).setAdapter(adapter)
         view.findViewById<AutoCompleteTextView>(R.id.actvBlackResult).setAdapter(adapter)
 
-        // Save
+
         view.findViewById<Button>(R.id.btnSave).setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? AppCompatActivity)?.supportActionBar?.title =
+            getString(R.string.title_game_details)   // or title_game_details / app_name etc.
     }
 }

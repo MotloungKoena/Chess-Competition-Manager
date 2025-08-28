@@ -9,17 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="90dp"
         android:padding="16dp">
 
-        <!-- Screen title (like mock) -->
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_add_game"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:layout_marginBottom="8dp" />
+
 
         <!-- White player label -->
         <TextView

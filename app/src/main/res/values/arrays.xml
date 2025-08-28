@@ -1,5 +1,4 @@
 <resources>
-    <!-- Spinner for grades -->
     <string-array name="grades">
         <item>Grade 8</item>
         <item>Grade 9</item>
@@ -8,7 +7,6 @@
         <item>Grade 12</item>
     </string-array>
 
-    <!-- Temporary player lists for Add Game (static for now) -->
     <string-array name="player_names">
         <item>Alice</item>
         <item>Bob</item>
@@ -17,7 +15,11 @@
         <item>Leila</item>
     </string-array>
 
-    <!-- If you ever want to build the result picker programmatically -->
+    <string-array name="week_statuses">
+        <item>@string/status_open</item>
+        <item>@string/status_closed</item>
+    </string-array>
+
     <string-array name="results">
         <item>@string/result_white_win</item>
         <item>@string/result_black_win</item>

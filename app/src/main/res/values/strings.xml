@@ -1,8 +1,5 @@
 <resources>
-    <!-- App -->
-    <string name="app_name">Chess Competition Manager</string>
-
-    <!-- Common labels/buttons -->
+    <string name="app_name">Chess Manager</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_save">Save</string>
     <string name="btn_open_play_list">Open Play List</string>
@@ -10,13 +7,9 @@
     <string name="btn_add_player">Add Player</string>
     <string name="btn_open_game_details">Open Game Details</string>
     <string name="btn_add_game">Add Game</string>
-
-    <!-- Add Game -->
     <string name="title_add_game">Add Game</string>
     <string name="label_white_player">White Player</string>
     <string name="label_black_player">Black Player</string>
-
-    <!-- Add Player -->
     <string name="title_add_player">Add Player</string>
     <string name="label_full_name">Full Name</string>
     <string name="hint_full_name">e.g., Thabo M</string>
@@ -25,8 +18,6 @@
     <string name="label_grade">Grade</string>
     <string name="label_avatar">Avatar</string>
     <string name="cd_avatar_placeholder">Avatar placeholder</string>
-
-    <!-- Game Details -->
     <string name="label_result">Result</string>
     <string name="result_white_win">White Win (1–0)</string>
     <string name="result_black_win">Black Win (0–1)</string>
@@ -35,7 +26,6 @@
     <string name="cd_board_photo_placeholder">Board photo placeholder</string>
     <string name="label_notes">Notes</string>
     <string name="hint_notes">e.g., Black checkmated on move 31</string>
-
     <string name="title_game_details">Game Details</string>
     <string name="role_white">(White)</string>
     <string name="role_black">(Black)</string>
@@ -44,7 +34,6 @@
     <string name="cd_avatar_black">Black player avatar</string>
     <string name="sample_white_name">Alice</string>
     <string name="sample_black_name">David</string>
-    <!-- res/values/strings.xml -->
     <string name="role_white_paren">(White)</string>
     <string name="role_black_paren">(Black)</string>
     <string name="title_season_list">Season List</string>
@@ -52,35 +41,27 @@
     <string name="status_closed">Closed</string>
     <string name="add_week">Add Week</string>
     <string name="add_player">Add Player</string>
+    <string name="add_game">Add Game</string>
     <string name="new_week">New Week</string>
-
     <string name="app_title_chess_manager">Chess Manager</string>
-
-        <string name="status_pending">Pending</string>
-        <string name="status_white_win">1–0</string>
-        <string name="status_black_win">0–1</string>
-        <string name="status_draw">½–½</string>
-
-
-
-
-
-    <!-- Play List -->
+    <string name="status_pending">Pending</string>
+    <string name="status_white_win">1–0</string>
+    <string name="status_black_win">0–1</string>
+    <string name="status_draw">½–½</string>
+    <string name="title_new_week">New Week</string>
+    <string name="hint_week_title">Week title (e.g., Week 6)</string>
+    <string name="hint_week_date">Date &amp; time</string>
+    <string name="hint_week_status">Status</string>
+    <string name="label_nickname">Nickname</string>
+    <string name="label_optional">Optional</string>
     <string name="week_unknown">Week ?</string>
     <string name="matchup_example">Alice (White) vs Bob (Black)</string>
     <string name="result_pending">Result: Pending</string>
-
-    <!-- Season List -->
     <string name="title_season">Season (10 weeks)</string>
     <string name="week1_label">Week 1 • Ends: 2025-09-05 • Status: Open</string>
     <string name="week2_label">Week 2 • Ends: 2025-09-12 • Status: Closed</string>
-
-    <!-- Optional formatted strings for later (if you want dynamic text) -->
     <string name="matchup_format">%1$s (White) vs %2$s (Black)</string>
     <string name="week_status_format">Week %1$d • Ends: %2$s • Status: %3$s</string>
-
-
-
     <string name="white_player">White Player</string>
     <string name="black_player">Black Player</string>
 </resources>

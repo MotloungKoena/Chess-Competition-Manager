@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 
@@ -37,7 +39,14 @@ class AddGameFragment : Fragment(R.layout.fragment_add_game) {
         }
         view.findViewById<Button>(R.id.btnSave).setOnClickListener {
             // no-op for now; just go back
+            Toast.makeText(requireContext(), "Game saved", Toast.LENGTH_SHORT).show()
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? AppCompatActivity)?.supportActionBar?.title =
+            getString(R.string.title_add_game)   // or title_game_details / app_name etc.
     }
 }

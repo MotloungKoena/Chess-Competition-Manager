@@ -6,38 +6,55 @@
 
     <!-- Content -->
     <LinearLayout
-        android:padding="16dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- Header like: Week 6 — Sep 10, 2025 -->
+        <!-- Week title e.g. "Week 6 – Sep 10, 2025" -->
         <TextView
-            android:id="@+id/txtHeader"
-            android:text="Week 6 — Sep 10, 2025"
+            android:id="@+id/txtWeekTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+              />
 
-        <!-- The list of games -->
+        <!-- Games list -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvGames"
-            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="15dp"
             android:layout_weight="1"
             android:clipToPadding="false"
-            android:paddingBottom="88dp" />
+            android:paddingBottom="96dp" />
     </LinearLayout>
 
-    <!-- Extended FAB centered at the bottom -->
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fabAddGame"
-        android:text="@string/btn_add_game"
-        android:layout_margin="16dp"
+    <!-- Bottom-right round FAB with small caption (matches mock) -->
+    <LinearLayout
+        android:id="@+id/fabAddGameContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        app:icon="@android:drawable/ic_input_add" />
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/add_game"
+            android:src="@android:drawable/ic_input_add"
+            app:useCompatPadding="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/btn_add_game"
+            android:textSize="12sp" />
+    </LinearLayout>
+
 </FrameLayout>

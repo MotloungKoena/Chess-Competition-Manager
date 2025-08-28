@@ -1,37 +1,36 @@
 package com.ufs.csiq6823
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
 class PlayListFragment : Fragment(R.layout.fragment_play_list) {
 
     private var weekTitle: String? = null
-    private var weekDateLabel: String? = null
+    private var dateLabel: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             weekTitle = it.getString(ARG_WEEK)
-            weekDateLabel = it.getString(ARG_DATE_LABEL)
+            dateLabel = it.getString(ARG_DATE)
         }
+        setHasOptionsMenu(true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Header: "Week 6 — Sep 10, 2025" (falls back to just week if date missing)
-        val header = buildString {
-            append(weekTitle ?: getString(R.string.week_unknown))
-            weekDateLabel?.takeIf { it.isNotBlank() }?.let { append(" — ").append(it) }
-        }
-        view.findViewById<TextView>(R.id.txtHeader).text = header
+        // RecyclerView
+        val rv = view.findViewById<RecyclerView>(R.id.rvGames)
+        rv.layoutManager = LinearLayoutManager(requireContext())
 
-        // Sample list (replace with real data)
+        // Sample data to match the mock
         val games = listOf(
             GameUI("Alice", "David", GameStatus.Pending),
             GameUI("Charlie", "Bob", GameStatus.WhiteWin),
@@ -39,29 +38,52 @@ class PlayListFragment : Fragment(R.layout.fragment_play_list) {
             GameUI("Grace Hall", "Henry", GameStatus.Draw)
         )
 
-        val rv = view.findViewById<RecyclerView>(R.id.rvGames)
-        rv.layoutManager = LinearLayoutManager(requireContext())
-        rv.adapter = GameAdapter(games) { game ->
-            (activity as? MainActivity)?.openGameDetails(game.white, game.black)
+        rv.adapter = GameAdapter(games) {
+            // Open details for the first item just as a demo
+            (activity as? MainActivity)?.openGameDetails("Alice", "David")
         }
-
-        view.findViewById<ExtendedFloatingActionButton>(R.id.fabAddGame)
+        view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fabAddGame)
             .setOnClickListener {
-                (activity as? MainActivity)?.openAddGame(weekTitle ?: getString(R.string.week_unknown))
+                (activity as? MainActivity)?.openAddGame(weekTitle ?: getString(R.string.new_week))
             }
+
+        // Add Game button (Extended FAB)
+        /**view.findViewById<View>(R.id.fabAddGame)?.setOnClickListener {
+            (activity as? MainActivity)?.openAddGame(weekTitle ?: getString(R.string.new_week))
+        }*/
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Keep the year, drop only the time. Example input: "Sep 10, 2025, 5:00 PM"
+        val dateShort = dateLabel?.substringBeforeLast(",")?.trim()
+
+        (activity as? AppCompatActivity)?.supportActionBar?.apply {
+            title = when {
+                weekTitle != null && dateShort != null -> "${weekTitle} \u2013 $dateShort"
+                weekTitle != null && dateLabel != null -> "${weekTitle} \u2013 $dateLabel"
+                else -> weekTitle ?: getString(R.string.app_name)
+            }
+            setDisplayHomeAsUpEnabled(true)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            activity?.onBackPressedDispatcher?.onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {
         private const val ARG_WEEK = "ARG_WEEK"
-        private const val ARG_DATE_LABEL = "ARG_DATE_LABEL"
+        private const val ARG_DATE = "ARG_DATE"
 
-        fun newInstance(weekTitle: String, dateLabel: String?): PlayListFragment {
-            return PlayListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_WEEK, weekTitle)
-                    putString(ARG_DATE_LABEL, dateLabel)
-                }
+        fun newInstance(weekTitle: String, dateLabel: String?): PlayListFragment =
+            PlayListFragment().apply {
+                arguments = bundleOf(ARG_WEEK to weekTitle, ARG_DATE to dateLabel)
             }
-        }
     }
 }

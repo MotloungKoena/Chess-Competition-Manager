@@ -2,7 +2,7 @@ package com.ufs.csiq6823
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.commit
+import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,38 +10,99 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Hook toolbar if present
+        findViewById<MaterialToolbar?>(R.id.toolbar)?.let { setSupportActionBar(it) }
+        supportActionBar?.title = getString(R.string.app_name)
+
+        // Keep Up arrow state in sync with back stack
+        supportFragmentManager.addOnBackStackChangedListener { syncUpButton() }
+        syncUpButton()
+
         if (savedInstanceState == null) {
-            supportFragmentManager.commit {
-                replace(R.id.fragment_container, SeasonListFragment())
-            }
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, SeasonListFragment())
+                .commit()
         }
     }
 
-    fun openPlayList(weekTitle: String, dateLabel: String) {
-        supportFragmentManager.commit {
-            replace(R.id.fragment_container, PlayListFragment.newInstance(weekTitle, dateLabel))
-            addToBackStack(null)
-        }
+    fun openPlayList(weekTitle: String, dateLabel: String? = null) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(
+                R.id.fragment_container,
+                PlayListFragment.newInstance(weekTitle, dateLabel)
+            )
+            .addToBackStack(null)
+            .commit()
+
+        supportActionBar?.title = weekTitle
+        syncUpButton()
     }
 
     fun openAddPlayer() {
-        supportFragmentManager.commit {
-            replace(R.id.fragment_container, AddPlayerFragment())
-            addToBackStack(null)
-        }
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, AddPlayerFragment())
+            .addToBackStack(null)
+            .commit()
+
+        supportActionBar?.title = getString(R.string.title_add_player)
+        syncUpButton()
+    }
+
+    fun openNewWeek() {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, NewWeekFragment())
+            .addToBackStack(null)
+            .commit()
+
+        supportActionBar?.title = getString(R.string.title_add_player)
+        syncUpButton()
     }
 
     fun openAddGame(weekTitle: String) {
-        supportFragmentManager.commit {
-            replace(R.id.fragment_container, AddGameFragment.newInstance(weekTitle))
-            addToBackStack(null)
-        }
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, AddGameFragment.newInstance(weekTitle))
+            .addToBackStack(null)
+            .commit()
+
+        supportActionBar?.title = getString(R.string.title_add_game)
+        syncUpButton()
     }
 
     fun openGameDetails(white: String, black: String) {
-        supportFragmentManager.commit {
-            replace(R.id.fragment_container, GameDetailsFragment.newInstance(white, black))
-            addToBackStack(null)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(
+                R.id.fragment_container,
+                GameDetailsFragment.newInstance(white, black)
+            )
+            .addToBackStack(null)
+            .commit()
+
+        supportActionBar?.title = getString(R.string.title_game_details)
+        syncUpButton()
+    }
+
+    private fun syncUpButton() {
+        val hasBack = supportFragmentManager.backStackEntryCount > 0
+        supportActionBar?.setDisplayHomeAsUpEnabled(hasBack)
+
+        // If using a MaterialToolbar, make its nav click go back
+        findViewById<MaterialToolbar?>(R.id.toolbar)?.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
+
+        if (!hasBack) {
+            supportActionBar?.title = getString(R.string.app_name)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 }

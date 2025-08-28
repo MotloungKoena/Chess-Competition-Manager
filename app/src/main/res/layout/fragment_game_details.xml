@@ -7,6 +7,7 @@
 
     <LinearLayout
         android:padding="16dp"
+        android:layout_marginTop="65dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

@@ -1,7 +1,5 @@
 <resources>
-    <!-- App-wide theme -->
     <style name="Theme.ChessCompetitionManager" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Keep it minimal; add colors later if you want -->
         <item name="android:statusBarColor">?attr/colorSurface</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>

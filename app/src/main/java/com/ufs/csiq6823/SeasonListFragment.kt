@@ -2,6 +2,7 @@ package com.ufs.csiq6823
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,7 +28,8 @@ class SeasonListFragment : Fragment(R.layout.fragment_season_list) {
 
         // NEW WEEK: pass null for the date label (or rely on MainActivity overload)
         view.findViewById<View>(R.id.fabAddWeek).setOnClickListener {
-            (activity as? MainActivity)?.openPlayList(getString(R.string.new_week), null)
+            (activity as? MainActivity)?.openNewWeek()
+            //(activity as? MainActivity)?.openPlayList(getString(R.string.new_week), null)
             // if you added the overload, you can instead call:
             // (activity as? MainActivity)?.openPlayList(getString(R.string.new_week))
         }
@@ -35,5 +37,11 @@ class SeasonListFragment : Fragment(R.layout.fragment_season_list) {
         view.findViewById<View>(R.id.fabAddPlayer).setOnClickListener {
             (activity as? MainActivity)?.openAddPlayer()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? AppCompatActivity)?.supportActionBar?.title =
+            getString(R.string.app_name)     // "Chess Manager"
     }
 }
