@@ -32,7 +32,7 @@
 
             <ImageView
                 android:id="@+id/imgWhite"
-                android:src="@android:drawable/sym_def_app_icon"
+                android:src="@drawable/white_female"
                 android:contentDescription="@string/cd_avatar_white"
                 android:background="@drawable/bg_avatar_circle"
                 android:padding="6dp"
@@ -73,7 +73,7 @@
 
             <ImageView
                 android:id="@+id/imgBlack"
-                android:src="@android:drawable/sym_def_app_icon"
+                android:src="@drawable/black_male"
                 android:contentDescription="@string/cd_avatar_black"
                 android:background="@drawable/bg_avatar_circle"
                 android:padding="6dp"
