@@ -7,14 +7,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 
-data class WeekUI(
+data class WeekUIi(
     val title: String,
     val subtitle: String,
     val isOpen: Boolean
 )
 
 class WeekAdapter(
-    private val weeks: List<WeekUI>,
+    private var weeks: List<WeekUI>,
     private val onClick: (String, String?) -> Unit
 ) : RecyclerView.Adapter<WeekAdapter.VH>() {
 
@@ -55,4 +55,8 @@ class WeekAdapter(
     }
 
     override fun getItemCount() = weeks.size
+    fun submitList(newList: List<WeekUI>) {
+        weeks = newList
+        notifyDataSetChanged()
+    }
 }

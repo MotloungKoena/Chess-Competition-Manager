@@ -25,4 +25,10 @@
         <item>@string/result_black_win</item>
         <item>@string/result_draw</item>
     </string-array>
+
+    <string-array name="game_results">
+        <item>White Win (1–0)</item>
+        <item>Black Win (0–1)</item>
+        <item>Draw (½–½)</item>
+    </string-array>
 </resources>

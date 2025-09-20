@@ -64,4 +64,25 @@
     <string name="week_status_format">Week %1$d • Ends: %2$s • Status: %3$s</string>
     <string name="white_player">White Player</string>
     <string name="black_player">Black Player</string>
+    <string name="title_play_list">Play List</string>
+    <string name="title_players">Players</string>
+    <string name="rank_format">Rank: %1$d</string>
+
+
+
+    <string name="msg_pick_both_players">Pick both players</string>
+    <string name="msg_pick_two_different_players">Pick two different players</string>
+    <string name="msg_game_saved">Game saved</string>
+
+    <string name="msg_result_saved">Result saved</string>
+
+
+    <string name="error_required">Required</string>
+    <string name="error_pick_date">Pick a date</string>
+    <string name="toast_week_added">New week added</string>
+    <string name="msg_enter_title">Please enter a week title</string>
+    <string name="msg_pick_date">Please pick a date</string>
+    <string name="msg_week_saved">Week saved</string>
+    <string name="rank_unknown">Rank: —</string>
+
 </resources>
